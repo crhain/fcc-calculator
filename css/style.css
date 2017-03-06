@@ -1,0 +1,103 @@
+body {
+font-family: 'Orbitron', sans-serif;
+}
+
+#body {
+background-color: #D3DDE8;
+width: 320px;
+height: 480px;
+margin-right: auto;
+margin-left: auto;
+box-shadow: 10px 10px 30px 1px black, inset -2px -2px 30px 1px black;
+border-radius: 10px;
+}
+
+#label {
+width: 280px;
+color: #0E1E2E;
+text-align: center;
+margin-right: auto;
+margin-left: auto;
+}
+#label h1 {
+font-size: 1.5em;
+padding-top: 20px;
+padding-bottom: 10px;
+}
+
+#display {
+background-color: #F4F7F9;
+color: #0E1E2E;
+width: 280px;
+height: 50px;
+border-radius: 5px;
+border: 1px solid gray;
+margin-bottom: 10px;
+margin-right: auto;
+margin-left: auto;
+text-align: right;
+font-size: 2em;
+}
+#display p {
+position: relative;
+margin-right: 10px;
+bottom: 30px;
+}
+
+.key-row {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+#keypad {
+/*background-color: $keypad-color;*/
+width: 280px;
+height: 360px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.calc-btn {
+background-color: #0E1E2E;
+color: white;
+width: 50px;
+height: 50px;
+border-radius: 10px;
+box-shadow: 1px 1px 5px 1px black;
+margin-right: 10px;
+margin-left: 10px;
+margin-bottom: 10px;
+}
+
+#EQUAL {
+height: 110px;
+}
+
+#ZERO, #DEC {
+position: relative;
+bottom: 60px;
+}
+
+#ZERO {
+width: 120px;
+}
+
+.red {
+background-color: #B3331D;
+}
+
+footer {
+width: 320px;
+text-align: center;
+font-family: sans-serif;
+font-size: 1em;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* remove annoying outline on buttons and inputs*/
+button, input:focus {
+outline: 0;
+}
