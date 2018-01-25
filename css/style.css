@@ -8,6 +8,16 @@ width: 100%;
 height: 100vh;
 }
 
+.instruction{
+    display: none;
+}
+
+@media (hover: hover){
+    .instruction{
+        display: block;
+    }
+}
+
 #body {
 position: absolute;
 /* top: 10%;
