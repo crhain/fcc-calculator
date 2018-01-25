@@ -79,6 +79,7 @@ var calculator = (function(){
   Main function to run on document ready
 */
 $("document").ready(function(){
+  registerMoveableObject(document.getElementById("body"), true);
   $("#display p").text("0");
   //set up event handler for button clicks
   $(".calc-btn").on("click", function(event){
@@ -88,3 +89,4 @@ $("document").ready(function(){
     else{ calculator.input(value); }
   });
 });
+
