@@ -21,6 +21,7 @@ box-shadow: 10px 10px 30px 1px black, inset -2px -2px 30px 1px black;
 border-radius: 10px;
 cursor: pointer;
 transition: box-shadow 0.5s;
+z-index: 1;
 }
 
 #body:hover{
@@ -41,8 +42,8 @@ padding-bottom: 10px;
 }
 
 #display {
-background-color: #F4F7F9;
-color: #0E1E2E;
+background-color: #5D5959;
+color: #434040;
 width: 280px;
 height: 50px;
 border-radius: 5px;
@@ -52,11 +53,17 @@ margin-right: auto;
 margin-left: auto;
 text-align: right;
 font-size: 2em;
+transition: all 0.5s;
 }
 #display p {
 position: relative;
 margin-right: 10px;
 bottom: 30px;
+}
+
+#display.power-on{
+background-color: #F4F7F9;
+color: #0E1E2E;
 }
 
 .key-row {

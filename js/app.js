@@ -12,6 +12,7 @@
 */
 //create an object to perform calculator functions
 var calculator = (function(){
+  var power = true;
   var MAX = 10;
   var inputBuffer = "";
   var myCalc = {};
@@ -39,8 +40,10 @@ var calculator = (function(){
   };
 
   myCalc.input = function(value){
-    addToBuffer(value);
-    updateDisplay();
+    if(power){
+      addToBuffer(value);
+      updateDisplay();
+    }    
   };
 
   myCalc.clear = function(){
@@ -48,30 +51,38 @@ var calculator = (function(){
     updateDisplay();
   };
 
+  myCalc.power = function(){
+    power = !power;
+    $("#display").toggleClass("power-on");    
+    this.clear();
+  }
+
   myCalc.calculate = function(){
     /*number.toExponential  on any answer greater than MAX*/
-
-    try{
-      var calc = new Function('return ' + inputBuffer + ';');
-      var answer = calc(); //no longer use eval(inputBuffer) because new Function offers better performance
-      //console.log(answer);
-      if(answer == 777){
-        updateDisplay("Carl Hain");
-        return 0;
+    if(power){
+      try{
+        var calc = new Function('return ' + inputBuffer + ';');
+        var answer = calc(); //no longer use eval(inputBuffer) because new Function offers better performance
+        //console.log(answer);
+        if(answer == 777){
+          updateDisplay("Carl Hain");
+          return 0;
+        }
+  
+        answer = answer.toString();
+        var len = answer.length;
+        if(len > MAX){
+          answer = answer.slice(0, len + 2 - MAX);
+        }
+        this.clear();
+        this.input(answer);
       }
-
-      answer = answer.toString();
-      var len = answer.length;
-      if(len > MAX){
-        answer = answer.slice(0, len + 2 - MAX);
+      catch(e){
+        clearBuffer();
+        updateDisplay("ERROR");
       }
-      this.clear();
-      this.input(answer);
     }
-    catch(e){
-      clearBuffer();
-      updateDisplay("ERROR");
-    }
+    
   };
   return myCalc;
 })();
@@ -79,12 +90,13 @@ var calculator = (function(){
   Main function to run on document ready
 */
 $("document").ready(function(){
-  registerMoveableObject(document.getElementById("body"), true);
+  registerMoveableObject(document.getElementById("body"));
   $("#display p").text("0");
   //set up event handler for button clicks
   $(".calc-btn").on("click", function(event){
     var value = event.target.value;
-    if(value === 'ce' || value === 'ac'){ calculator.clear(); }
+    if(value === 'ce'){ calculator.clear(); }
+    else if(value === 'ac'){ calculator.power()}
     else if(value === '='){ calculator.calculate(); }
     else{ calculator.input(value); }
   });
