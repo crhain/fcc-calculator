@@ -1,0 +1,36 @@
+{
+  "name": "fcc-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crhain/fcc-calculator.git"
+  },
+  "author": "Carl Hain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crhain/fcc-calculator/issues"
+  },
+  "homepage": "https://github.com/crhain/fcc-calculator#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "gh-pages": "^1.1.0",
+    "html-minifier": "^3.5.12",
+    "html-minifier-cli": "^0.1.0",
+    "live-server": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.8.3",
+    "npm-run-all": "^4.1.2",
+    "postcss-cli": "^5.0.0",
+    "rmraf": "^1.0.3",
+    "uglify-js": "^3.3.16"
+  }
+}
