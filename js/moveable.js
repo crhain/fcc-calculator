@@ -11,9 +11,10 @@ function registerMoveableObject(moveableObject, bound = false){
     var clickY;
     var oldzIndex;
     var container = moveableObject.parentElement;
+    var frame;
     //add mousedown event
-    moveableObject.addEventListener('mousedown', (e)=>{
-        let clickItemRect = moveableObject.getBoundingClientRect();                    
+    moveableObject.addEventListener('mousedown', function (e){
+        var clickItemRect = moveableObject.getBoundingClientRect();                    
         clickX = e.clientX - clickItemRect.left;
         clickY = e.clientY - clickItemRect.top;
         oldzIndex = moveableObject.style.zIndex;
@@ -24,7 +25,7 @@ function registerMoveableObject(moveableObject, bound = false){
         //console.log(moveableObject.classList);       
     });
     //add mouseup event
-    moveableObject.addEventListener('mouseup', (e)=>{       
+    moveableObject.addEventListener('mouseup', function(e){       
         //console.log('mouse up');
         moveableObject.style.zIndex = oldzIndex;
         oldzIndex = 1;
@@ -33,7 +34,7 @@ function registerMoveableObject(moveableObject, bound = false){
              
     });    
     //add mouseleave event    
-    container.addEventListener('mouseleave', (e)=>{
+    container.addEventListener('mouseleave', function (e) {
         e.preventDefault();        
         if(moveableObject.classList.contains('can-move')){
             moveableObject.style.zIndex = oldzIndex;
@@ -44,19 +45,26 @@ function registerMoveableObject(moveableObject, bound = false){
         }                            
     });             
     //add mousemove event
-    document.body.addEventListener('mousemove', (e)=>{    
-        let canMove = !!moveableObject.classList.contains('can-move');        
+    document.body.addEventListener('mousemove', function(e){
+        
+        if(!frame){                                    
+            frame = window.requestAnimationFrame(moveOnMouse.bind(null, e));                                                
+        }
+    });
+
+    function moveOnMouse(e, time){
+        var canMove = !!moveableObject.classList.contains('can-move');        
         if(canMove){            
-            let containerRect = container.getBoundingClientRect();
-            let leftBound = 0; //-190
-            let rightBound = containerRect.width - moveWidth; //1346
-            let topBound =  0;  //-25
-            let bottomBound = containerRect.height - moveHeight; //-85
-            let xOffset = containerRect.left;
-            let yOffset = containerRect.top;                                             
+            var containerRect = container.getBoundingClientRect();
+            var leftBound = 0; //-190
+            var rightBound = containerRect.width - moveWidth; //1346
+            var topBound =  0;  //-25
+            var bottomBound = containerRect.height - moveHeight; //-85
+            var xOffset = containerRect.left;
+            var yOffset = containerRect.top;                                             
             //set x, y position
-            let xPos = e.clientX - clickX - xOffset;
-            let yPos = e.clientY - clickY - yOffset;
+            var xPos = e.clientX - clickX - xOffset;
+            var yPos = e.clientY - clickY - yOffset;
             //console.log("xPos: " + xPos + ", yPos: " + yPos);        
             if((xPos >= leftBound && xPos <= rightBound) || !bound){            
                 moveableObject.style.left = xPos + "px";            
@@ -65,14 +73,10 @@ function registerMoveableObject(moveableObject, bound = false){
                 moveableObject.style.top = yPos + "px";                    
             }                                                                                        
         }
-    });
+
+        frame = null;
+    }
+
 
     return moveableObject;
 }
-
-//ADD ability to turn on collision detection between objects
-//  * on mouse up or leave container events, calculate objects current possition and add to some data structure
-//  * add additional collsion detection logic into mousemove handler that iterates through data structure detecting if any objects occupy that space
-//  * have flag that enables/disables collision detection on individual items
-//  * modify canMove flag by systematically testing for collisions.  Maybe split out function to do this.
-//ADD optional export for use with require js modules and also one for es6 module system
