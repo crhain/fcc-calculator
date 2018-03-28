@@ -7,7 +7,21 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "postdeploy": "npm run clean:dist",
+    "build": "npm-run-all clean:dist make:dist build:html build:css build:js",
+    "devserver": "live-server",
+    "watch:sass": "node-sass src/sass/main.scss public/css/style.css -w",
+    "clean:dist": "rimraf dist -rf",
+    "make:dist": "mkdirp dist/public/css dist/public/js",
+    "compile:sass": "node-sass src/sass/main.scss dist/public/css/style.comp.css",
+    "prefix:css": "postcss dist/public/css/style.comp.css --use autoprefixer -o dist/public/css/style.prefix.css",
+    "compress:css": "node-sass dist/public/css/style.prefix.css dist/public/css/style.css --output-style compressed",
+    "build:html": "htmlmin -o dist/index.html index.html",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "build:js": "uglifyjs -c -m -o dist/public/js/app.js -c -m --source-map -- public/js/app.js public/js/moveable.js"  
   },
   "repository": {
     "type": "git",
