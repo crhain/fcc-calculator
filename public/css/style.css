@@ -1,145 +1,138 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
 body {
-font-family: 'Orbitron', sans-serif;
-}
+  box-sizing: border-box; }
 
-.container{
-position: relative;
-width: 100%;
-height: 100vh;
-}
+body {
+  font-family: 'Orbitron', sans-serif; }
 
-.instruction{
-    display: none;
-}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh; }
 
-@media (hover: hover){
-    .instruction{
-        display: block;
-    }
-}
+.instruction {
+  display: none; }
+
+@media (hover: hover) {
+  .instruction {
+    display: block; } }
 
 #body {
-position: absolute;
-/* top: 10%;
-left: 40%; */
-background-color: #D3DDE8;
-width: 320px;
-height: 480px;
-margin-right: auto;
-margin-left: auto;
-box-shadow: 10px 10px 30px 1px black, inset -2px -2px 30px 1px black;
-border-radius: 10px;
-cursor: pointer;
-transition: box-shadow 0.5s;
-z-index: 1;
-}
+  position: absolute;
+  /* top: 10%;
+    left: 40%; */
+  background-color: #D3DDE8;
+  width: 320px;
+  height: 480px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 10px 10px 30px 1px black, inset -2px -2px 30px 1px black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  z-index: 1; }
 
-#body:hover{
-box-shadow: 15px 15px 40px 1px black, inset -2px -2px 30px 1px black;
-}
+#body:hover {
+  box-shadow: 15px 15px 40px 1px black, inset -2px -2px 30px 1px black; }
 
-#inner-body{
-position: relative;
-}
+#inner-body {
+  position: relative; }
 
 #label {
-width: 100%;    
-/* width: 290px; */
-color: #0E1E2E;
-text-align: center;
-margin-right: auto;
-margin-left: auto;
-}
+  width: 100%;
+  /* width: 290px; */
+  color: #0E1E2E;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto; }
+
 #label h1 {
-font-size: 1.5em;
-padding-top: 20px;
-padding-bottom: 10px;
-}
+  font-size: 1.5em;
+  padding-top: 20px;
+  padding-bottom: 10px; }
 
 #display {
-position: relative;    
-background-color: #5D5959;
-color: #434040;
-width: 280px;
-height: 50px;
-border-radius: 5px;
-border: 1px solid gray;
-margin-bottom: 10px;
-margin-right: auto;
-margin-left: auto;
-text-align: right;
-font-size: 2em;
-transition: all 0.5s;
-}
-#display p {
-position: relative;
-margin-right: 10px;
-/*bottom: 30px;*/
-bottom: 50%;
-}
+  position: relative;
+  background-color: #5D5959;
+  color: #434040;
+  width: 280px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: right;
+  font-size: 2em;
+  transition: all 0.5s; }
 
-#display.power-on{
-background-color: #F4F7F9;
-color: #0E1E2E;
-}
+#display p {
+  position: relative;
+  margin-right: 10px;
+  /*bottom: 30px;*/
+  bottom: 50%; }
+
+#display.power-on {
+  background-color: #F4F7F9;
+  color: #0E1E2E; }
 
 .key-row {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-}
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
 
 #keypad {
-/*background-color: $keypad-color;*/
-width: 280px;
-height: 360px;
-margin-right: auto;
-margin-left: auto;
-}
+  /*background-color: $keypad-color;*/
+  width: 280px;
+  height: 360px;
+  margin-right: auto;
+  margin-left: auto; }
 
 .calc-btn {
-background-color: #0E1E2E;
-color: white;
-width: 50px;
-height: 50px;
-border-radius: 10px;
-box-shadow: 1px 1px 5px 1px black;
-margin-right: 10px;
-margin-left: 10px;
-margin-bottom: 10px;
-cursor: pointer;
-}
+  background-color: #0E1E2E;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px black;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  cursor: pointer; }
 
 #EQUAL {
-height: 110px;
-}
+  height: 110px; }
 
 #ZERO, #DEC {
-position: relative;
-bottom: 60px;
-}
+  position: relative;
+  bottom: 60px; }
 
 #ZERO {
-width: 120px;
-}
+  width: 120px; }
 
 .red {
-background-color: #B3331D;
-}
+  background-color: #B3331D; }
 
 footer {
-width: 320px;
-text-align: center;
-font-family: sans-serif;
-font-size: 1em;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-}
+  width: 320px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1em;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto; }
 
 /* remove annoying outline on buttons and inputs*/
 button, input:focus {
-outline: 0;
-}
+  outline: 0; }
 
 /*media queries for smaller screen sizes*/
