@@ -1,6 +1,6 @@
 'use strict'
 
-function registerMoveableObject(moveableObject, bound = false){    
+function registerMoveableObject(moveableObject, bound){
     //ADD reset on container resize
     //ADD conditional statements to check paramters are objects.
     //if they are not, but are instead strings, then use document.getElementById()
