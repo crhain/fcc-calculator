@@ -20,7 +20,7 @@
     position: absolute;
     /* top: 10%;
     left: 40%; */
-    background-color: #D3DDE8;
+    background-color: $color-background-white;
     width: 32rem;
     height: 48rem;
     margin-right: auto;
@@ -43,7 +43,7 @@
     #label {
     width: 100%;    
     /* width: 290px; */
-    color: #0E1E2E;
+    color: $color-text-dark;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
@@ -56,8 +56,8 @@
     
     #display {
     position: relative;    
-    background-color: #5D5959;
-    color: #434040;
+    background-color: $color-grey-dark-2;
+    color: $color-grey-dark-1;
     width: 28rem;
     height: 5rem;
     border-radius: .5rem;
@@ -78,8 +78,8 @@
     }
     
     #display.power-on{
-    background-color: #F4F7F9;
-    color: #0E1E2E;
+    background-color: $color-display-light;
+    color: $color-text-dark;
     }
     
     .key-row {
@@ -97,7 +97,7 @@
     }
     
     .calc-btn {
-    background-color: #0E1E2E;
+    background-color: $color-text-dark;
     color: white;
     width: 5rem;
     height: 5rem;
@@ -123,7 +123,7 @@
     }
     
     .red {
-    background-color: #B3331D;
+    background-color: $color-red;
     }
     
     footer {
