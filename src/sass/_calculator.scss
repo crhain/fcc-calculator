@@ -78,22 +78,23 @@
     }
     
     #display.power-on{
-    background-color: $color-display-light;
-    color: $color-text-dark;
+        background-color: $color-display-light;
+        color: $color-text-dark;
     }
     
     .key-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
     
     #keypad {
     /*background-color: $keypad-color;*/
-    width: 28rem;
-    height: 36rem;
-    margin-right: auto;
-    margin-left: auto;
+        width: 28rem;
+        height: 36rem;
+        margin-right: auto;
+        margin-left: auto;
+
     }
     
     .calc-btn {
