@@ -6,6 +6,7 @@
   "directories": {
     "doc": "docs"
   },
+  "homepage": "http://crhwebdev.github.io/fcc-calculator",
   "scripts": {
     "start": "npm-run-all --parallel devserver watch:sass",
     "deploy": "gh-pages -d dist",
@@ -25,14 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crhain/fcc-calculator.git"
+    "url": "git+https://github.com/crhwebdev/fcc-calculator.git"
   },
   "author": "Carl Hain",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/crhain/fcc-calculator/issues"
-  },
-  "homepage": "https://github.com/crhain/fcc-calculator#readme",
+    "url": "https://github.com/crhwebdev/fcc-calculator/issues"
+  },    
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "gh-pages": "^1.1.0",
