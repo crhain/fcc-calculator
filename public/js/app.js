@@ -16,6 +16,7 @@ var calculator = (function(){
   var MAX = 10;
   var inputBuffer = "";
   var myCalc = {};
+  var display = $(".calculator__display > p");
 
   function addToBuffer(value){
     if(inputBuffer.length < MAX){
@@ -29,13 +30,13 @@ var calculator = (function(){
 
     if(arguments.length > 0){
       //console.log("my arguments are: " + arguments[0]);
-      $("#display p").text(arguments[0]);
+      display.text(arguments[0]);
     }
     else if(inputBuffer.length === 0){
-      $("#display p").text("0");
+      display.text("0");
     }
     else{
-      $("#display p").text(inputBuffer);
+      display.text(inputBuffer);
     }
   };
 
@@ -53,7 +54,7 @@ var calculator = (function(){
 
   myCalc.power = function(){
     power = !power;
-    $("#display").toggleClass("power-on");    
+    $("#display").toggleClass("calculator__display--on");    
     this.clear();
   }
 
@@ -90,10 +91,10 @@ var calculator = (function(){
   Main function to run on document ready
 */
 $("document").ready(function(){
-  registerMoveableObject(document.getElementById("body"));
-  $("#display p").text("0");
+  registerMoveableObject(document.getElementById("calculator"));
+  $(".calculator__display > p").text("0");
   //set up event handler for button clicks
-  $(".calc-btn").on("click", function(event){
+  $(".calculator__btn").on("click", function(event){
     var value = event.target.value;
     if(value === 'ce'){ calculator.clear(); }
     else if(value === 'ac'){ calculator.power()}

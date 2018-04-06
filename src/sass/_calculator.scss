@@ -16,130 +16,152 @@
         }
     }
     
-    #body {
-    position: absolute;
-    /* top: 10%;
-    left: 40%; */
-    background-color: $color-background-white;
-    width: 32rem;
-    height: 48rem;
-    margin-right: auto;
-    margin-left: auto;
-    box-shadow: 1rem 1rem 3rem 1px black, inset -2px -2px 3rem 1px black;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: box-shadow 0.5s;
-    z-index: 1;
-    }
-    
-    #body:hover{
-    box-shadow: 1.5rem 1.5rem 4rem 1px black, inset -2px -2px 3rem 1px black;
-    }
-    
-    #inner-body{
-    position: relative;
-    }
-    
-    #label {
-    width: 100%;    
-    /* width: 290px; */
-    color: $color-text-dark;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    }
-    #label h1 {
-    font-size: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    }
-    
-    #display {
-    position: relative;    
-    background-color: $color-grey-dark-2;
-    color: $color-grey-dark-1;
-    width: 28rem;
-    height: 5rem;
-    border-radius: .5rem;
-    border: 1px solid gray;
-    margin-bottom: 1rem;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: right;
-    font-size: 2rem;
-    transition: all 0.5s;
-    }
-    #display p {
-    position: relative;
-    margin-right: 1rem;
-    line-height: 2.5;
-    /*bottom: 30px;*/
-    // bottom: 50%;
-    }
-    
-    #display.power-on{
-        background-color: $color-display-light;
-        color: $color-text-dark;
-    }
-    
-    .key-row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    #keypad {
-    /*background-color: $keypad-color;*/
-        width: 28rem;
-        height: 36rem;
+    .calculator {
+        position: absolute;
+        /* top: 10%;
+        left: 40%; */
+        background-color: $color-background-white;
+        width: 32rem;
+        height: 48rem;        
         margin-right: auto;
         margin-left: auto;
+        box-shadow: 1rem 1rem 3rem 1px black, inset -2px -2px 3rem 1px black;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: box-shadow 0.5s;
+        z-index: 1;    
 
+        &:hover {
+            box-shadow: 1.5rem 1.5rem 4rem 1px black, inset -2px -2px 3rem 1px black;
+        }
+
+        &__face {
+            position: relative;            
+        }
+
+        &__label {
+            width: 100%;    
+            /* width: 290px; */
+            color: $color-text-dark;
+            text-align: center;
+            margin-right: auto;
+            margin-left: auto;
+
+            h1 {
+                font-size: 2rem;
+                padding-top: 2rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        &__display {
+            position: relative;    
+            background-color: $color-grey-dark-2;
+            color: $color-grey-dark-1;
+            width: 28rem;
+            height: 5rem;
+            border-radius: .5rem;
+            border: 1px solid gray;
+            margin-bottom: 1rem;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: right;
+            font-size: 2rem;
+            transition: all 0.5s;
+
+            p {
+                position: relative;
+                margin-right: 1rem;
+                line-height: 2.5;
+                /*bottom: 30px;*/
+                // bottom: 50%;
+            }
+
+            &--on {
+                background-color: $color-display-light;
+                color: $color-text-dark;        
+            }
+        }
+
+        &__keypad {
+            /*background-color: $keypad-color;*/
+            width: 28rem;
+            height: 36rem;            
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 1rem;
+
+            &-row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        &__btn {
+            background-color: $color-text-dark;
+            color: white;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 1rem;
+            box-shadow: 1px 1px .5rem 1px black;
+            
+            // margin-left: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+
+            &:not(:last-child){
+                margin-right: 1.5rem;
+            }
+
+            &--red {
+                background-color: $color-red;
+            }
+
+            &--equal {
+                height: 11rem;
+            }
+
+            &--zero {
+                width: 12rem;
+            }
+
+            &--zero,
+            &--dec {
+                position: relative;
+                // bottom: 10rem;
+            }
+        }        
     }
+
+// #EQUAL {
+//     height: 11rem;
+// }
+
+// #ZERO {
+//     width: 12rem;
+// }
+
+// #ZERO,
+// #DEC {
+//     position: relative;
+//     bottom: 6rem;
+// }
+
     
-    .calc-btn {
-    background-color: $color-text-dark;
-    color: white;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 1rem;
-    box-shadow: 1px 1px .5rem 1px black;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    }
-    
-    #EQUAL {
-    height: 11rem;
-    }
-    
-    #ZERO, #DEC {
-    position: relative;
-    bottom: 6rem;
-    }
-    
-    #ZERO {
-    width: 12rem;
-    }
-    
-    .red {
-    background-color: $color-red;
-    }
-    
-    footer {
-    width: 32rem;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 1rem;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    }
-    
-    /* remove annoying outline on buttons and inputs*/
-    button, input:focus {
-    outline: 0;
-    }
-    
-    /*media queries for smaller screen sizes*/
+footer {
+width: 32rem;
+text-align: center;
+font-family: sans-serif;
+font-size: 1rem;
+margin-top: 2rem;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* remove annoying outline on buttons and inputs*/
+button, input:focus {
+outline: 0;
+}
+
+/*media queries for smaller screen sizes*/
