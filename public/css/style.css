@@ -11,25 +11,29 @@ html {
 body {
   box-sizing: border-box; }
 
+/* remove annoying outline on buttons and inputs*/
+button, input:focus {
+  outline: 0; }
+
 body {
   font-family: 'Orbitron', sans-serif; }
 
 .container {
   position: relative;
   width: 100%;
-  height: 100vh; }
+  height: 80vh; }
 
 .instruction {
   display: none; }
 
 @media (hover: hover) {
   .instruction {
-    display: block; } }
+    display: block;
+    margin-bottom: 2.5rem; } }
 
 .calculator {
   position: absolute;
-  /* top: 10%;
-        left: 40%; */
+  margin: 0 auto;
   background-color: #D3DDE8;
   width: 32rem;
   height: 48rem;
@@ -104,21 +108,9 @@ body {
     .calculator__btn--equal {
       height: 11rem; }
     .calculator__btn--zero {
-      width: 12rem; }
+      width: 11.5rem; }
     .calculator__btn--zero, .calculator__btn--dec {
-      position: relative; }
-
-footer {
-  width: 32rem;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 1rem;
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto; }
-
-/* remove annoying outline on buttons and inputs*/
-button, input:focus {
-  outline: 0; }
+      position: relative;
+      bottom: 6rem; }
 
 /*media queries for smaller screen sizes*/
