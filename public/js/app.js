@@ -23,7 +23,9 @@ var calculator = (function(){
   };
   //keypad input handler for calculator
   myCalc.input = function(value){
-    if(power){
+    var allowed = /[0-9\+\.\*\/=-]/gi
+    if(power && allowed.test(value)){
+      //NOTE: add check for numbers and arithmatic symbols      
       addToBuffer(value);
       updateDisplay();
     }    
@@ -100,5 +102,14 @@ $("document").ready(function(){
     else if(value === 'ac'){ calculator.power()}
     else if(value === '='){ calculator.calculate(); }
     else{ calculator.input(value); }
+  });
+  //set up event handler for keyboard clicks
+  $("body").on("keypress", function(event){
+    var key = event.key.toLowerCase();
+    console.log(event);
+    if(key === 'a') { calculator.power(); }
+    else if(key === 'c') { calculator.clear(); }
+    else if(key === '=' || key === 'enter'){ calculator.calculate(); }
+    else { calculator.input(key) }    
   });
 });
