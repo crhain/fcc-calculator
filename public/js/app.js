@@ -1,6 +1,6 @@
 
 var calculator = (function(){
-  var MAX = 15; //controls number of charcters allowed in display
+  var MAX_DISPLAY_SIZE = 15; //controls number of charcters allowed in display
   var power = true;  
   var inputBuffer = "";
   var myCalc = {};
@@ -32,7 +32,7 @@ var calculator = (function(){
   };
   //calculates values when EQUAL button is pressed
   myCalc.calculate = function(){
-    //number.toExponential on any answer greater than MAX
+    //number.toExponential on any answer greater than MAX_DISPLAY_SIZE
     if(power){
       try{
         var calc = new Function('return ' + inputBuffer + ';');
@@ -43,8 +43,8 @@ var calculator = (function(){
         }  
         answer = answer.toString();
         var len = answer.length;
-        if(len > MAX){
-          answer = answer.slice(0, len + 2 - MAX);
+        if(len > MAX_DISPLAY_SIZE){
+          answer = answer.slice(0, len + 2 - MAX_DISPLAY_SIZE);
         }
         this.clear();
         this.input(answer);
@@ -62,7 +62,7 @@ var calculator = (function(){
 
   //add values to inputBuffer
   function addToBuffer(value){
-    if(inputBuffer.length < MAX){
+    if(inputBuffer.length < MAX_DISPLAY_SIZE){
      return inputBuffer += value;
     }
   }
