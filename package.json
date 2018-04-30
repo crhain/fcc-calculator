@@ -22,7 +22,7 @@
     "compress:css": "node-sass dist/public/css/style.prefix.css dist/public/css/style.css --output-style compressed",
     "build:html": "htmlmin -o dist/index.html index.html",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
-    "build:js": "uglifyjs -c -m -o dist/public/js/app.js -c -m --source-map -- public/js/app.js public/js/moveable.js"  
+    "build:js": "uglifyjs -c -m -o dist/public/js/app.js -c -m --source-map -- public/js/app.js public/js/moveable.js"
   },
   "repository": {
     "type": "git",
@@ -32,10 +32,11 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/crhwebdev/fcc-calculator/issues"
-  },    
+  },
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "gh-pages": "^1.1.0",
+    "hoek": "^5.0.3",
     "html-minifier": "^3.5.12",
     "html-minifier-cli": "^0.1.0",
     "live-server": "^1.2.0",
